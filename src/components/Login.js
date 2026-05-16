@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { LogIn, UserPlus, Eye, EyeOff, Mail, Lock, Info, Send, KeyRound, ArrowLeft } from 'lucide-react';
-// NEU: Import für den Google Button
+// Import für den Google Button
 import { GoogleLogin } from '@react-oauth/google';
+
+// HIER WIRD DIE URL DYNAMISCH GEWÄHLT:
+// Wenn die App auf Vercel läuft, nutzt sie die Umgebungsvariable. 
+// Wenn du lokal entwickelst, fällt sie automatisch auf localhost:5000 zurück!
+const API_URL = import.meta.env?.VITE_API_URL || process.env?.REACT_APP_API_URL || 'http://localhost:5000';
 
 const Login = ({ onLoginSuccess }) => {
   // UI States: 'login' | 'register' | 'forgot_request' | 'forgot_submit'
@@ -26,7 +31,8 @@ const Login = ({ onLoginSuccess }) => {
     
     try {
       const payload = { email, password };
-      const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, payload);
+      // HIER GEÄNDERT: ${API_URL} statt localhost
+      const res = await axios.post(`${API_URL}/api/auth/${endpoint}`, payload);
       
       if (viewState === 'register') {
         toast.info("Registrierung erfolgreich! Du kannst dich jetzt einloggen.");
@@ -42,12 +48,12 @@ const Login = ({ onLoginSuccess }) => {
     }
   };
 
-  // --- NEU: GOOGLE LOGIN HANDLER ---
+  // --- GOOGLE LOGIN HANDLER ---
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       setLoading(true);
-      // Wir senden den Google-Token an unser Backend zur Verifizierung
-      const res = await axios.post('http://localhost:5000/api/auth/google', {
+      // HIER GEÄNDERT: ${API_URL} statt localhost
+      const res = await axios.post(`${API_URL}/api/auth/google`, {
         token: credentialResponse.credential
       });
 
@@ -64,11 +70,12 @@ const Login = ({ onLoginSuccess }) => {
     }
   };
 
-  // --- PASSWORT VERGESSEN LOGIK (Unverändert) ---
+  // --- PASSWORT VERGESSEN LOGIK ---
   const handleForgotRequest = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/forgot-password-request', { email });
+      // HIER GEÄNDERT: ${API_URL} statt localhost
+      await axios.post(`${API_URL}/api/auth/forgot-password-request`, { email });
       setViewState('forgot_submit');
       toast.success("Code gesendet! Bitte E-Mail prüfen.");
     } catch (err) {
@@ -79,7 +86,8 @@ const Login = ({ onLoginSuccess }) => {
   const handleForgotSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/forgot-password-submit', { 
+      // HIER GEÄNDERT: ${API_URL} statt localhost
+      await axios.post(`${API_URL}/api/auth/forgot-password-submit`, { 
         email, code: resetCode, newPassword 
       });
       toast.success("Passwort geändert! Bitte einloggen.");
@@ -149,7 +157,7 @@ const Login = ({ onLoginSuccess }) => {
               <Send size={18} />
             </button>
             
-            {/* --- NEU: GOOGLE LOGIN BEREICH --- */}
+            {/* --- GOOGLE LOGIN BEREICH --- */}
             <div style={styles.divider}>
               <span style={styles.dividerText}>oder</span>
             </div>
@@ -167,7 +175,7 @@ const Login = ({ onLoginSuccess }) => {
           </form>
         )}
 
-        {/* FORGOT PASSWORD FORMS (Unverändert) */}
+        {/* FORGOT PASSWORD FORMS */}
         {viewState === 'forgot_request' && (
           <form onSubmit={handleForgotRequest} style={styles.form}>
             <div style={styles.inputWrapper}>
@@ -231,26 +239,11 @@ const styles = {
   input: { width: '100%', padding: '12px 40px 12px 40px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '1rem', boxSizing: 'border-box' },
   eyeBtn: { position: 'absolute', right: '12px', background: 'none', border: 'none', cursor: 'pointer', color: '#999', display: 'flex', alignItems: 'center', padding: 0 },
   btn: { padding: '12px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontWeight: 'bold', fontSize: '1rem' },
-  
-  // Footer Links Styles
   footerLinks: { marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' },
   switchText: { fontSize: '0.9rem', color: '#007bff', cursor: 'pointer', textDecoration: 'underline', fontWeight: 'bold' },
   forgotLink: { fontSize: '0.9rem', color: '#6c757d', cursor: 'pointer' },
-
-  // --- NEUE STYLES FÜR GOOGLE ---
   divider: { display: 'flex', alignItems: 'center', margin: '15px 0' },
-  dividerText: { 
-    flex: 1, 
-    textAlign: 'center', 
-    fontSize: '0.85rem', 
-    color: '#999', 
-    display: 'flex', 
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    gap: '10px',
-    // Kleiner CSS-Hack für Linien links und rechts (funktioniert in JS-Styles oft nur bedingt, daher hier vereinfacht oder als CSS-Klasse besser. 
-    // Aber für Inline-Styles ist dies eine einfache Variante:)
-  },
+  dividerText: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', flex: 1, textAlign: 'center', fontSize: '0.85rem', color: '#999' },
   googleWrapper: { display: 'flex', justifyContent: 'center', width: '100%' }
 };
 
