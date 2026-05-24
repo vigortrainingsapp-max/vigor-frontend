@@ -18,7 +18,7 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-const testimonials = [
+    const testimonials = [
   {
     name: "Jonas M.",
     role: "Hobbyathlet",
@@ -39,7 +39,7 @@ const testimonials = [
   }
 ];
 
-useEffect(() => {
+  useEffect(() => {
   const interval = setInterval(() => {
     setActiveTestimonial(prev => (prev + 1) % testimonials.length);
   }, 4000);
