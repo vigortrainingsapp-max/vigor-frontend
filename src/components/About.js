@@ -21,7 +21,7 @@ const About = ({ onClose }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/contact', formData);
+      await axios.post('https://vigor-backend-iznu.onrender.com/api/auth/contact', formData);
       toast.success(t('msg_sent_success'));
       setFormData({ email: '', category: 'Verbesserung', subject: '', message: '' });
       setTab('info');
