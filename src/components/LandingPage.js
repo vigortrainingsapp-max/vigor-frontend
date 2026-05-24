@@ -191,6 +191,57 @@ const features = [
             <Users size={16} color="#28a745" />
             <span>{t('landing.active_users', { count: userCount })}</span>
           </div>
+
+          {/* --- KEIN DOWNLOAD BADGE --- */}
+          <div style={{
+            display: 'flex',
+            gap: '10px',
+            flexWrap: 'wrap',
+            marginTop: '12px'
+          }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              backgroundColor: isDarkMode ? '#2a2a2a' : '#f0f4ff',
+              border: '1px solid ' + (isDarkMode ? '#444' : '#c7d8ff'),
+              borderRadius: '20px',
+              padding: '6px 14px',
+              fontSize: '0.82rem',
+              color: isDarkMode ? '#aac4ff' : '#3b6fff',
+              fontWeight: '600'
+            }}>
+              🌐 Im Browser – kein Download nötig
+            </div>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              backgroundColor: isDarkMode ? '#2a2a2a' : '#f0fff4',
+              border: '1px solid ' + (isDarkMode ? '#444' : '#a3e9b4'),
+              borderRadius: '20px',
+              padding: '6px 14px',
+              fontSize: '0.82rem',
+              color: isDarkMode ? '#6fcf97' : '#1a8a3c',
+              fontWeight: '600'
+            }}>
+              ✓ 100% kostenlos
+            </div>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              backgroundColor: isDarkMode ? '#2a2a2a' : '#fff8f0',
+              border: '1px solid ' + (isDarkMode ? '#444' : '#ffd59e'),
+              borderRadius: '20px',
+              padding: '6px 14px',
+              fontSize: '0.82rem',
+              color: isDarkMode ? '#f0a050' : '#c96a00',
+              fontWeight: '600'
+            }}>
+              ⚡ Sofort loslegen
+            </div>
+          </div>
         </div>
         
         {/* Rechte Seite: Handy Bild (Wieder eingefügt) */}
