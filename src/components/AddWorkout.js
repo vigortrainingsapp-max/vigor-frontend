@@ -55,7 +55,7 @@ const AddWorkout = ({ onWorkoutAdded }) => {
       try {
         const token = localStorage.getItem('token');
         if (!token) return;
-        const res = await axios.get('http://localhost:5000/api/workouts', {
+        const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/workouts', {
           headers: { 'x-auth-token': token }
         });
         setAllWorkouts(res.data || []);
@@ -146,7 +146,7 @@ const AddWorkout = ({ onWorkoutAdded }) => {
         cardio: type === 'Cardio' ? cardio : {}
       };
 
-      await axios.post('http://localhost:5000/api/workouts', payload, config);
+      await axios.post('https://vigor-backend-iznu.onrender.com/api/workouts', payload, config);
       toast.success(t('workout_saved'));
       
       // Reset
@@ -154,7 +154,7 @@ const AddWorkout = ({ onWorkoutAdded }) => {
       setCardio({ activity: '', duration: '', distance: '', intensity: 'Mittel' });
       
       // History neu laden
-      const res = await axios.get('http://localhost:5000/api/workouts', config);
+      const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/workouts', config);
       setAllWorkouts(res.data || []);
 
       if (onWorkoutAdded) onWorkoutAdded();
