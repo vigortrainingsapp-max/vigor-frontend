@@ -10,14 +10,14 @@ import PrivacyPolicy from './PrivacyPolicy';
 import Terms from './Terms';
 import dashboardMockup from '../images/Handy.png';
 import { useTranslation } from 'react-i18next';
-
+ 
 const LandingPage = ({ onStartApp, isDarkMode }) => {
   const { t, i18n } = useTranslation();
   const [userCount, setUserCount] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-
+ 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-
+ 
     const testimonials = [
   {
     name: "Jonas M.",
@@ -38,7 +38,7 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
     stars: 5
   }
 ];
-
+ 
   useEffect(() => {
   const interval = setInterval(() => {
     setActiveTestimonial(prev => (prev + 1) % testimonials.length);
@@ -48,13 +48,13 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
   
   const [overlayView, setOverlayView] = useState(null);
   const [hoveredFeature, setHoveredFeature] = useState(null);
-
+ 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
   // Styles abrufen
   const styles = getLandingStyles(isDarkMode);
-
+ 
   // --- CSS für Animationen und Hover-Effekte ---
   const styleSheet = document.createElement("style");
   styleSheet.innerText = `
@@ -63,7 +63,7 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
       50% { transform: translateY(-20px); }
       100% { transform: translateY(0px); }
     }
-
+ 
     /* Feature Cards: Hochfahren & Leuchten */
     .feature-card {
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -73,7 +73,7 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
       box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2) !important; 
       border-color: #007bff !important;
     }
-
+ 
     /* Buttons: Leichtes Pulsieren beim Drüberfahren */
     .interactive-btn {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -85,7 +85,7 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
     .interactive-btn:active {
       transform: scale(0.95);
     }
-
+ 
     /* FAQ Items: Heller werden */
     .faq-item {
       transition: background-color 0.3s ease;
@@ -114,13 +114,13 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
     };
     fetchUserCount();
   }, []);
-
+ 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
-
+ 
 // In LandingPage.js, nach der toggleFaq-Funktion (ca. Zeile 89), vor dem return:
-
+ 
 const features = [
   {
     icon: <BarChart2 />,
@@ -143,16 +143,16 @@ const features = [
     desc: t('landing.feat_sleep_desc'),
   },
 ];
-
+ 
   return (
     <div style={styles.container}>
-
+ 
         
       
       {/* --- HEADER / NAV --- */}
       <header style={styles.header}>
         <div style={styles.logo}>VIGOR<span style={{color: '#007bff'}}>.APP</span></div>
-
+ 
         {/* NEU: Sprachwahl */}
   <div style={{ display: 'flex', gap: '15px', marginRight: 'auto', marginLeft: '40px' }}>
       <button onClick={() => changeLanguage('de')} style={styles.langBtn}>DE</button>
@@ -166,7 +166,7 @@ const features = [
     {t('landing.login_btn')} <ArrowRight size={16} style={{marginLeft: 5}}/>
   </button>
 </header>
-
+ 
     {/* --- HERO SECTION --- */}
       <header style={styles.heroSection}>
         {/* Linke Seite: Text */}
@@ -186,7 +186,7 @@ const features = [
                {t('landing.start_btn')}
             </button>
           </div>
-
+ 
           <div style={styles.userCountBadge}>
             <Users size={16} color="#28a745" />
             <span>{t('landing.active_users', { count: userCount })}</span>
@@ -204,20 +204,20 @@ const features = [
            />
         </div>
       </header>
-
-
+ 
+ 
       {/* --- FEATURES SECTION --- */}
       <section style={styles.featuresSection}>
         <div style={styles.sectionHeader}>
           <h2 style={styles.sectionTitle}>{t('landing.features_title')}</h2>
           <p style={styles.sectionSubtitle}>{t('')}</p>
         </div>
-
+ 
         <div style={styles.featuresGrid}>
           {features.map((feature, index) => {
             // Prüfen, ob DIESE Karte gerade gehovert wird
             const isHovered = hoveredFeature === index;
-
+ 
             return (
               <div 
                 key={index}
@@ -245,7 +245,7 @@ const features = [
                     color: '#007bff' 
                   })}
                 </div>
-
+ 
                 <h3 style={styles.featureTitle}>{feature.title}</h3>
                 <p style={styles.featureDesc}>{feature.desc}</p>
               </div>
@@ -286,14 +286,14 @@ const features = [
             <p style={styles.aboutText}>
               {t('landing.about_text')}
             </p>
-
+ 
             {/* HIER KOMMT DANN DEINE BEREITS EINGEFÜGTE CHECKLISTE */}
             {/* ... <div style={styles.checkList}> ... */} 
           </div>
         </div>
       </section>
-
-
+ 
+ 
       {/* --- PRICING SECTION --- */}
       <section style={styles.section}>
         <div style={{textAlign: 'center', maxWidth: '800px', margin: '0 auto 50px auto'}}>
@@ -302,7 +302,7 @@ const features = [
             {t('landing.pricing_subtitle')}
           </p>
         </div>
-
+ 
         <div style={styles.pricingGrid}>
           {/* Card 1: Der "Vergleich" */}
           <div style={{...styles.pricingCard, opacity: 0.7, transform: 'scale(0.95)'}}>
@@ -315,7 +315,7 @@ const features = [
               <li style={styles.pricingItem}><X size={18} color="#dc3545" /> {t('landing.pricing_feat_data')}</li>
             </ul>
           </div>
-
+ 
           {/* Card 2: Dein Angebot */}
           <div style={{...styles.pricingCard, border: '2px solid #007bff', position: 'relative', overflow: 'hidden'}}>
             <div style={styles.pricingBadge}>{t('landing.pricing_badge')}</div>
@@ -327,22 +327,22 @@ const features = [
             
             <div style={{...styles.priceTag, color: '#007bff'}}>{t('landing.pricing_free')} <span style={{fontSize: '1rem', fontWeight: 'normal', color: isDarkMode ? '#ccc' : '#555'}}>{t('landing.pricing_forever')}</span></div>
             <p style={{marginBottom: '20px', fontSize: '0.9rem', color: isDarkMode ? '#aaa' : '#666'}}>{t('landing.pricing_all_in_one')}</p>
-
+ 
             <ul style={styles.pricingList}>
               <li style={styles.pricingItem}><CheckCircle size={18} color="#007bff" /> <strong>{t('landing.pricing_vigor_feat_1')}</strong></li>
               <li style={styles.pricingItem}><CheckCircle size={18} color="#007bff" /> {t('landing.pricing_vigor_feat_2')}</li>
               <li style={styles.pricingItem}><CheckCircle size={18} color="#007bff" /> {t('landing.pricing_vigor_feat_3')}</li>
               <li style={styles.pricingItem}><CheckCircle size={18} color="#007bff" /> {t('landing.pricing_vigor_feat_4')}</li>
             </ul>
-
+ 
             <button onClick={onStartApp} style={{...styles.ctaBtn, width: '100%', marginTop: '20px', padding: '12px'}}>
               {t('landing.pricing_cta_btn')}
             </button>
           </div>
         </div>
       </section>
-
-
+ 
+ 
       {/* --- ROADMAP & CHANGELOG --- */}
       <section style={{...styles.section, backgroundColor: isDarkMode ? '#1e1e1e' : '#f8f9fa'}}>
         <div style={{textAlign: 'center', marginBottom: '50px'}}>
@@ -351,7 +351,7 @@ const features = [
             {t('landing.roadmap_subtitle')}
           </p>
         </div>
-
+ 
         <div style={styles.roadmapGrid}>
           
           {/* Linke Spalte: Roadmap */}
@@ -366,27 +366,27 @@ const features = [
               <h4 style={styles.timelineTitle}>{t('landing.roadmap_item_1_title')}</h4>
               <p style={styles.timelineText}>{t('landing.roadmap_item_1_desc')}</p>
             </div>
-
+ 
             <div style={styles.timelineItem}>
                <div style={{...styles.statusBadge, backgroundColor: '#fff3cd', color: '#856404', border: '1px solid #ffeeba'}}>{t('landing.status_planned')}</div>
               <h4 style={styles.timelineTitle}>{t('landing.roadmap_item_2_title')}</h4>
               <p style={styles.timelineText}>{t('landing.roadmap_item_2_desc')}</p>
             </div>
-
+ 
             <div style={styles.timelineItem}>
                <div style={{...styles.statusBadge, backgroundColor: isDarkMode ? '#333' : '#e2e3e5', color: isDarkMode ? '#ccc' : '#383d41'}}>{t('landing.status_idea')}</div>
               <h4 style={styles.timelineTitle}>{t('landing.roadmap_item_3_title')}</h4>
               <p style={styles.timelineText}>{t('landing.roadmap_item_3_desc')}</p>
             </div>
           </div>
-
+ 
           {/* Rechte Spalte: Changelog */}
           <div style={styles.updateCard}>
             <div style={{display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px'}}>
               <div style={{...styles.iconCircle, backgroundColor: isDarkMode ? '#2d2d2d' : '#fff0f0'}}><GitBranch size={24} color="#dc3545"/></div>
               <h3 style={styles.updateTitle}>{t('landing.changelog_col_title')}</h3>
             </div>
-
+ 
             <div style={styles.logEntry}>
               <span style={styles.versionNumber}>v1.0.2</span>
               <ul style={styles.logList}>
@@ -394,7 +394,7 @@ const features = [
                 <li><CheckSquare size={14} style={{marginTop: 3}}/> Schnellere Ladezeiten</li>
               </ul>
             </div>
-
+ 
             <div style={{...styles.logEntry, borderLeft: '2px solid #ddd'}}>
               <span style={{...styles.versionNumber, backgroundColor: '#6c757d'}}>v1.0.1</span>
               <ul style={styles.logList}>
@@ -402,18 +402,18 @@ const features = [
                 <li><CheckSquare size={14} style={{marginTop: 3}}/> Passwort Reset</li>
               </ul>
             </div>
-
+ 
             <div style={{...styles.logEntry, borderLeft: '2px dashed #ddd', paddingBottom: 0}}>
               <span style={{...styles.versionNumber, backgroundColor: '#28a745'}}>v1.0.0</span>
               <p style={{fontSize: '0.9rem', color: isDarkMode ? '#aaa' : '#666', marginTop: '5px'}}>
                 {t('landing.log_launch')}
               </p>
             </div>
-
+ 
           </div>
         </div>
       </section>
-
+ 
       {/* --- Q&A / FAQ --- */}
     {/* --- Q&A / FAQ --- */}
       <section style={styles.section}>
@@ -429,67 +429,6 @@ const features = [
           <FaqItem 
             question={t('landing.faq_q2')}
             answer={t('landing.faq_a2')}
-
-            {/* --- TESTIMONIALS --- */}
-<section style={{...styles.section, backgroundColor: isDarkMode ? '#1e1e1e' : '#f8f9fa', overflow: 'hidden'}}>
-  <h2 style={styles.sectionTitle}>Was unsere Nutzer sagen</h2>
-  <p style={{textAlign: 'center', color: isDarkMode ? '#aaa' : '#666', marginBottom: '40px'}}>
-    Echte Erfahrungen aus der Beta
-  </p>
-
-  <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto' }}>
-    
-    {testimonials.map((t, index) => (
-      <div key={index} style={{
-        display: index === activeTestimonial ? 'block' : 'none',
-        backgroundColor: isDarkMode ? '#2a2a2a' : '#fff',
-        borderRadius: '20px',
-        padding: '35px',
-        boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
-        textAlign: 'center',
-        animation: 'fadeIn 0.5s ease'
-      }}>
-        <div style={{ fontSize: '1.4rem', color: '#f39c12', marginBottom: '15px' }}>
-          {'★'.repeat(t.stars)}
-        </div>
-        <p style={{
-          fontSize: '1.05rem',
-          lineHeight: '1.7',
-          color: isDarkMode ? '#ddd' : '#444',
-          fontStyle: 'italic',
-          marginBottom: '25px'
-        }}>
-          "{t.text}"
-        </p>
-        <div style={{ fontWeight: '700', color: isDarkMode ? '#fff' : '#1a1a1a' }}>
-          {t.name}
-        </div>
-        <div style={{ fontSize: '0.85rem', color: isDarkMode ? '#aaa' : '#888', marginTop: '4px' }}>
-          {t.role}
-        </div>
-      </div>
-    ))}
-
-    {/* Dots */}
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '25px' }}>
-      {testimonials.map((_, index) => (
-        <div
-          key={index}
-          onClick={() => setActiveTestimonial(index)}
-          style={{
-            width: index === activeTestimonial ? '24px' : '10px',
-            height: '10px',
-            borderRadius: '5px',
-            backgroundColor: index === activeTestimonial ? '#007bff' : (isDarkMode ? '#555' : '#ccc'),
-            cursor: 'pointer',
-            transition: 'all 0.3s ease'
-          }}
-        />
-      ))}
-    </div>
-  </div>
-</section>
-
             isOpen={openFaqIndex === 1}
             onClick={() => toggleFaq(1)}
             styles={styles}
@@ -521,7 +460,63 @@ const features = [
           />
         </div>
       </section>
-
+ 
+      {/* --- TESTIMONIALS --- */}
+      <section style={{...styles.section, backgroundColor: isDarkMode ? '#1e1e1e' : '#f8f9fa', overflow: 'hidden'}}>
+        <h2 style={styles.sectionTitle}>Was unsere Nutzer sagen</h2>
+        <p style={{textAlign: 'center', color: isDarkMode ? '#aaa' : '#666', marginBottom: '40px'}}>
+          Echte Erfahrungen aus der Beta
+        </p>
+        <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto' }}>
+          {testimonials.map((item, index) => (
+            <div key={index} style={{
+              display: index === activeTestimonial ? 'block' : 'none',
+              backgroundColor: isDarkMode ? '#2a2a2a' : '#fff',
+              borderRadius: '20px',
+              padding: '35px',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+              textAlign: 'center',
+              animation: 'fadeIn 0.5s ease'
+            }}>
+              <div style={{ fontSize: '1.4rem', color: '#f39c12', marginBottom: '15px' }}>
+                {'★'.repeat(item.stars)}
+              </div>
+              <p style={{
+                fontSize: '1.05rem',
+                lineHeight: '1.7',
+                color: isDarkMode ? '#ddd' : '#444',
+                fontStyle: 'italic',
+                marginBottom: '25px'
+              }}>
+                "{item.text}"
+              </p>
+              <div style={{ fontWeight: '700', color: isDarkMode ? '#fff' : '#1a1a1a' }}>
+                {item.name}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: isDarkMode ? '#aaa' : '#888', marginTop: '4px' }}>
+                {item.role}
+              </div>
+            </div>
+          ))}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '25px' }}>
+            {testimonials.map((_, index) => (
+              <div
+                key={index}
+                onClick={() => setActiveTestimonial(index)}
+                style={{
+                  width: index === activeTestimonial ? '24px' : '10px',
+                  height: '10px',
+                  borderRadius: '5px',
+                  backgroundColor: index === activeTestimonial ? '#007bff' : (isDarkMode ? '#555' : '#ccc'),
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+ 
      <footer style={styles.footer}>
   <p>&copy; {new Date().getFullYear()} Vigor. All rights reserved.</p>
         <div style={styles.footerLinks}>
@@ -531,12 +526,12 @@ const features = [
         </div>
       </footer>
       
-
+ 
       {/* --- OVERLAYS ANZEIGEN --- */}
       {overlayView === 'imprint' && (
         <Legal onClose={() => setOverlayView(null)} />
       )}
-
+ 
       {overlayView === 'privacy' && (
         <PrivacyPolicy onClose={() => setOverlayView(null)} />
       )}
@@ -544,7 +539,7 @@ const features = [
     </div>
   );
 };
-
+ 
 // Hilfskomponenten
 const FeatureCard = ({ icon, title, desc, styles }) => (
   // Hier wurde className hinzugefügt
@@ -554,7 +549,7 @@ const FeatureCard = ({ icon, title, desc, styles }) => (
     <p style={styles.featureDesc}>{desc}</p>
   </div>
 );
-
+ 
 const FaqItem = ({ question, answer, isOpen, onClick, styles }) => (
   // Hier wurde className hinzugefügt
   <div style={styles.faqItem} className="faq-item">
@@ -565,14 +560,14 @@ const FaqItem = ({ question, answer, isOpen, onClick, styles }) => (
     {isOpen && <div style={styles.faqAnswer}>{answer}</div>}
   </div>
 );
-
+ 
 // Styles
 const getLandingStyles = (isDark) => {
   const bg = isDark ? '#121212' : '#ffffff';
   const text = isDark ? '#f0f0f0' : '#1a1a1a';
   const cardBg = isDark ? '#1e1e1e' : '#ffffff';
   const border = isDark ? '#333' : '#eee';
-
+ 
   return {
     container: {
       fontFamily: '"Segoe UI", sans-serif',
@@ -609,9 +604,9 @@ const getLandingStyles = (isDark) => {
       alignItems: 'center',
       transition: 'all 0.2s'
     },
-
+ 
     // Innerhalb von getLandingStyles return object:
-
+ 
 langBtn: {
   background: 'transparent',
   border: '1px solid ' + (isDark ? '#444' : '#ddd'), // Dezenter Rahmen
@@ -624,7 +619,7 @@ langBtn: {
   marginLeft: '5px',
   transition: 'all 0.2s ease',
 },
-
+ 
 buttonGroup: {
       display: 'flex',
       gap: '15px',
@@ -632,7 +627,7 @@ buttonGroup: {
       alignItems: 'center',
       flexWrap: 'wrap', // Falls der Bildschirm sehr klein ist
     },
-
+ 
     // Der "Login" Button (Dezent, Outline)
     primaryBtn: { // Achtung: In deinem HTML war das der Login-Button
       padding: '12px 28px',
@@ -649,7 +644,7 @@ buttonGroup: {
       transition: 'all 0.3s ease',
       backdropFilter: 'blur(5px)' // Leichter Glaseffekt
     },
-
+ 
     // Der "Jetzt starten" Button (Auffällig, Gradient, Schatten)
     secondaryBtn: { // Das war der "Start"-Button
       padding: '12px 32px',
@@ -668,7 +663,7 @@ buttonGroup: {
       boxShadow: '0 8px 20px rgba(0, 123, 255, 0.4)', 
       transition: 'transform 0.2s ease, box-shadow 0.2s ease'
     },
-
+ 
     // Der "Aktive Nutzer" Badge
     userCountBadge: {
       marginTop: '30px',
@@ -685,8 +680,8 @@ buttonGroup: {
       fontWeight: '600',
       letterSpacing: '0.5px'
     },
-
-
+ 
+ 
 // Optional: Hover-Effekte müssten via CSS-Klasse oder MouseEnter gelöst werden, 
 // aber das hier reicht für den Anfang völlig.
     heroSection: {
@@ -740,7 +735,7 @@ buttonGroup: {
       cursor: 'pointer',
       boxShadow: '0 4px 15px rgba(0,123,255,0.4)'
     },
-
+ 
 featuresSection: {
       padding: '80px 20px',
       background: isDark ? '#121212' : '#f8f9fa',
@@ -793,9 +788,9 @@ featuresSection: {
       lineHeight: '1.6',
     },
     
-
+ 
     // ... innerhalb von getLandingStyles ...
-
+ 
     pricingGrid: {
       display: 'flex',
       justifyContent: 'center',
@@ -858,9 +853,9 @@ featuresSection: {
       fontWeight: 'bold',
       boxShadow: '0 2px 10px rgba(0,123,255,0.3)'
     },
-
+ 
     // ... innerhalb von getLandingStyles ...
-
+ 
     roadmapGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -917,7 +912,7 @@ featuresSection: {
       margin: 0,
       lineHeight: '1.5'
     },
-
+ 
     // Changelog spezifisch
     logEntry: {
       paddingLeft: '20px',
@@ -966,7 +961,7 @@ featuresSection: {
       alignItems: 'center',
       position: 'relative', 
     },
-
+ 
     heroImage: {
       width: '100%',
       maxWidth: '4000px', // DEUTLICH GRÖSSER (war 320px)
@@ -975,7 +970,7 @@ featuresSection: {
       zIndex: 2, 
       animation: 'float 6s ease-in-out infinite' 
     },
-
+ 
     heroBackgroundCircle: {
       position: 'absolute',
       width: '550px', // Auch größer (war 350px)
@@ -988,10 +983,10 @@ featuresSection: {
       transform: 'translate(-50%, -50%)',
       filter: 'blur(60px)'
     },
-
-
+ 
+ 
     // --------------------------
-
+ 
     section: {
       padding: '80px 40px',
       maxWidth: '1200px',
@@ -1133,7 +1128,7 @@ featuresSection: {
       padding: 0,
       fontFamily: 'inherit'
     },
-
+ 
      founderName: {
       display: 'block',
       fontWeight: '700',
@@ -1151,5 +1146,5 @@ featuresSection: {
     },
   };
 };
-
+ 
 export default LandingPage;
