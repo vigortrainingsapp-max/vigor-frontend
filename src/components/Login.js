@@ -8,7 +8,7 @@ import { GoogleLogin } from '@react-oauth/google';
 // HIER WIRD DIE URL DYNAMISCH GEWÄHLT:
 // Wenn die App auf Vercel läuft, nutzt sie die Umgebungsvariable. 
 // Wenn du lokal entwickelst, fällt sie automatisch auf localhost:5000 zurück!
-const API_URL = import.meta.env?.VITE_API_URL || process.env?.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env?.VITE_API_URL || process.env?.REACT_APP_API_URL || 'https://vigor-backend-iznu.onrender.com';
 
 const Login = ({ onLoginSuccess }) => {
   // UI States: 'login' | 'register' | 'forgot_request' | 'forgot_submit'
