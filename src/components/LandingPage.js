@@ -74,7 +74,7 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
   useEffect(() => {
     const fetchUserCount = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/stats/count');
+        const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/stats/count');
         setUserCount(res.data.count);
       } catch (err) {
         console.error("Konnte Nutzerzahlen nicht laden", err);
