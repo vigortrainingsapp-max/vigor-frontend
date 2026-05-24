@@ -253,6 +253,115 @@ const features = [
           })}
         </div>
       </section>
+      {/* --- WIE ES FUNKTIONIERT --- */}
+      <section style={styles.section}>
+        <h2 style={styles.sectionTitle}>So funktioniert VIGOR</h2>
+        <p style={{textAlign: 'center', color: isDarkMode ? '#aaa' : '#666', marginBottom: '50px', fontSize: '1rem'}}>
+          In 3 einfachen Schritten zum persönlichen Fitness-Tracker
+        </p>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          gap: '20px',
+          flexWrap: 'wrap',
+          maxWidth: '900px',
+          margin: '0 auto'
+        }}>
+          {[
+            {
+              step: '1',
+              icon: '📝',
+              title: 'Kostenlos registrieren',
+              desc: 'Erstelle deinen Account in wenigen Sekunden – kein Download, keine Kreditkarte, komplett kostenlos.'
+            },
+            {
+              step: '2',
+              icon: '⚙️',
+              title: 'Profil einrichten',
+              desc: 'Gib deine Ziele, Körperdaten und Aktivitätslevel ein. VIGOR berechnet automatisch deinen Kalorienbedarf.'
+            },
+            {
+              step: '3',
+              icon: '📈',
+              title: 'Fortschritt tracken',
+              desc: 'Logge täglich Gewicht, Workouts und Mahlzeiten. Beobachte wie du deinen Zielen näher kommst.'
+            }
+          ].map((item, index) => (
+            <div key={index} style={{
+              flex: '1',
+              minWidth: '220px',
+              maxWidth: '260px',
+              textAlign: 'center',
+              position: 'relative'
+            }}>
+              {/* Verbindungslinie zwischen Steps */}
+              {index < 2 && (
+                <div style={{
+                  position: 'absolute',
+                  top: '28px',
+                  right: '-30px',
+                  width: '40px',
+                  height: '2px',
+                  backgroundColor: isDarkMode ? '#444' : '#ddd',
+                  display: window.innerWidth > 600 ? 'block' : 'none'
+                }} />
+              )}
+              {/* Nummer-Badge */}
+              <div style={{
+                width: '56px',
+                height: '56px',
+                borderRadius: '50%',
+                backgroundColor: '#007bff',
+                color: '#fff',
+                fontSize: '1.4rem',
+                fontWeight: '700',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 15px auto',
+                boxShadow: '0 4px 15px rgba(0,123,255,0.3)'
+              }}>
+                {item.step}
+              </div>
+              <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{item.icon}</div>
+              <h3 style={{
+                fontSize: '1.05rem',
+                fontWeight: '700',
+                color: isDarkMode ? '#fff' : '#1a1a1a',
+                marginBottom: '10px'
+              }}>
+                {item.title}
+              </h3>
+              <p style={{
+                fontSize: '0.9rem',
+                color: isDarkMode ? '#aaa' : '#666',
+                lineHeight: '1.6'
+              }}>
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div style={{ textAlign: 'center', marginTop: '45px' }}>
+          <button onClick={onStartApp} style={{
+            padding: '14px 35px',
+            backgroundColor: '#007bff',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '30px',
+            fontSize: '1rem',
+            fontWeight: '700',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(0,123,255,0.3)'
+          }}>
+            Jetzt kostenlos starten →
+          </button>
+        </div>
+      </section>
+
       {/* --- ABOUT SECTION --- */}
       <section style={{...styles.section, backgroundColor: isDarkMode ? '#1e1e1e' : '#f8f9fa'}}>
         <div style={styles.aboutContainer}>
