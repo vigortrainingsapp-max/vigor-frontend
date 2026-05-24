@@ -15,6 +15,37 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
   const { t, i18n } = useTranslation();
   const [userCount, setUserCount] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+const testimonials = [
+  {
+    name: "Jonas M.",
+    role: "Hobbyathlet",
+    text: "Endlich eine App, die alles in einem hat! Ich tracke mein Gewicht, meine Mahlzeiten und meinen Schlaf – alles kostenlos. Absolut empfehlenswert!",
+    stars: 5
+  },
+  {
+    name: "Laura K.",
+    role: "Fitness-Anfängerin",
+    text: "Super übersichtlich und einfach zu bedienen. Ich habe viele Apps ausprobiert, aber VIGOR ist die erste, bei der ich wirklich drangeblieben bin.",
+    stars: 5
+  },
+  {
+    name: "Markus T.",
+    role: "Kraftsportler",
+    text: "Die Körpermaß-Tracking Funktion ist genau was ich gesucht habe. Man sieht seinen Fortschritt über Zeit – das motiviert enorm!",
+    stars: 5
+  }
+];
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setActiveTestimonial(prev => (prev + 1) % testimonials.length);
+  }, 4000);
+  return () => clearInterval(interval);
+}, []);
+  
   const [overlayView, setOverlayView] = useState(null);
   const [hoveredFeature, setHoveredFeature] = useState(null);
 
@@ -398,6 +429,67 @@ const features = [
           <FaqItem 
             question={t('landing.faq_q2')}
             answer={t('landing.faq_a2')}
+
+            {/* --- TESTIMONIALS --- */}
+<section style={{...styles.section, backgroundColor: isDarkMode ? '#1e1e1e' : '#f8f9fa', overflow: 'hidden'}}>
+  <h2 style={styles.sectionTitle}>Was unsere Nutzer sagen</h2>
+  <p style={{textAlign: 'center', color: isDarkMode ? '#aaa' : '#666', marginBottom: '40px'}}>
+    Echte Erfahrungen aus der Beta
+  </p>
+
+  <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto' }}>
+    
+    {testimonials.map((t, index) => (
+      <div key={index} style={{
+        display: index === activeTestimonial ? 'block' : 'none',
+        backgroundColor: isDarkMode ? '#2a2a2a' : '#fff',
+        borderRadius: '20px',
+        padding: '35px',
+        boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+        textAlign: 'center',
+        animation: 'fadeIn 0.5s ease'
+      }}>
+        <div style={{ fontSize: '1.4rem', color: '#f39c12', marginBottom: '15px' }}>
+          {'★'.repeat(t.stars)}
+        </div>
+        <p style={{
+          fontSize: '1.05rem',
+          lineHeight: '1.7',
+          color: isDarkMode ? '#ddd' : '#444',
+          fontStyle: 'italic',
+          marginBottom: '25px'
+        }}>
+          "{t.text}"
+        </p>
+        <div style={{ fontWeight: '700', color: isDarkMode ? '#fff' : '#1a1a1a' }}>
+          {t.name}
+        </div>
+        <div style={{ fontSize: '0.85rem', color: isDarkMode ? '#aaa' : '#888', marginTop: '4px' }}>
+          {t.role}
+        </div>
+      </div>
+    ))}
+
+    {/* Dots */}
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '25px' }}>
+      {testimonials.map((_, index) => (
+        <div
+          key={index}
+          onClick={() => setActiveTestimonial(index)}
+          style={{
+            width: index === activeTestimonial ? '24px' : '10px',
+            height: '10px',
+            borderRadius: '5px',
+            backgroundColor: index === activeTestimonial ? '#007bff' : (isDarkMode ? '#555' : '#ccc'),
+            cursor: 'pointer',
+            transition: 'all 0.3s ease'
+          }}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
             isOpen={openFaqIndex === 1}
             onClick={() => toggleFaq(1)}
             styles={styles}
