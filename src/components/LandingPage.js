@@ -227,10 +227,27 @@ const features = [
         <div style={styles.aboutContainer}>
           <div style={styles.aboutImageWrapper}>
             <img src={aboutImage} alt="Founder" style={styles.aboutImage} />
-            <div style={styles.founderBadge}>
-              <strong>Maurice Angel Baugan</strong>
-              <span style={{fontSize: '0.8rem', opacity: 0.9}}>{t('landing.founder_role')}</span>
-            </div>
+           <div style={{
+  marginTop: '15px',
+  textAlign: 'center'
+}}>
+  <div style={{
+    fontSize: '1.1rem',
+    fontWeight: '700',
+    color: isDarkMode ? '#fff' : '#1a1a1a'
+  }}>
+    Maurice Angel Baugan
+  </div>
+  <div style={{
+    fontSize: '0.85rem',
+    color: isDarkMode ? '#aaa' : '#666',
+    marginTop: '4px',
+    letterSpacing: '1px',
+    textTransform: 'uppercase'
+  }}>
+    {t('landing.founder_role')}
+  </div>
+</div>
           </div>
           
           <div style={styles.aboutContent}>
