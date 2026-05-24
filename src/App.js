@@ -52,7 +52,7 @@ function App() {
       // Gewichts-Daten laden
       const fetchWeights = async () => {
         try {
-          const res = await axios.get('http://localhost:5000/api/weight');
+          const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/weight');
           setWeights(res.data);
         } catch (err) { console.error(err); }
       };
@@ -60,7 +60,7 @@ function App() {
       // Schlaf-Daten laden
       const fetchSleepData = async () => {
         try {
-          const res = await axios.get('http://localhost:5000/api/sleep');
+          const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/sleep');
           setSleepData(res.data);
         } catch (err) { console.error(err); }
       };
@@ -70,7 +70,7 @@ function App() {
         const userId = localStorage.getItem('userId');
         if (userId) {
           try {
-            const res = await axios.get(`http://localhost:5000/api/user/${userId}`);
+            const res = await axios.get(`https://vigor-backend-iznu.onrender.com/api/user/${userId}`);
             if (res.data && res.data.onboardingData) {
               setExistingOnboardingData(res.data.onboardingData);
             }
@@ -91,7 +91,7 @@ function App() {
   try {
     const userId = localStorage.getItem('userId');
     // Sende die Daten an dein Backend
-    const response = await axios.post('http://localhost:5000/api/user/onboarding', {
+    const response = await axios.post('https://vigor-backend-iznu.onrender.com/api/user/onboarding', {
       userId,
       onboardingData: { ...data, isCompleted: true } // Markiere es als abgeschlossen
     });
@@ -165,7 +165,7 @@ const handleLogin = (userData) => {
   const fetchWeights = async () => {
     if (!token) return;
     try {
-      const res = await axios.get('http://localhost:5000/api/weight', {
+      const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/weight', {
         headers: { 'x-auth-token': token }
       });
       setWeights(res.data);
@@ -177,7 +177,7 @@ const handleLogin = (userData) => {
   const fetchSleepData = async () => {
     if (!token) return;
     try {
-      const res = await axios.get('http://localhost:5000/api/sleep', {
+      const res = await axios.get('https://vigor-backend-iznu.onrender.com/api/sleep', {
         headers: { 'x-auth-token': token }
       });
       setSleepData(res.data);
