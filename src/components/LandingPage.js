@@ -18,26 +18,26 @@ const LandingPage = ({ onStartApp, isDarkMode }) => {
  
   const [activeTestimonial, setActiveTestimonial] = useState(0);
  
-    const testimonials = [
-  {
-    name: "Jonas M.",
-    role: "Hobbyathlet",
-    text: "Endlich eine App, die alles in einem hat! Ich tracke mein Gewicht, meine Mahlzeiten und meinen Schlaf – alles kostenlos. Absolut empfehlenswert!",
-    stars: 5
-  },
-  {
-    name: "Laura K.",
-    role: "Fitness-Anfängerin",
-    text: "Super übersichtlich und einfach zu bedienen. Ich habe viele Apps ausprobiert, aber VIGOR ist die erste, bei der ich wirklich drangeblieben bin.",
-    stars: 5
-  },
-  {
-    name: "Markus T.",
-    role: "Kraftsportler",
-    text: "Die Körpermaß-Tracking Funktion ist genau was ich gesucht habe. Man sieht seinen Fortschritt über Zeit – das motiviert enorm!",
-    stars: 5
-  }
-];
+  const testimonials = [
+    {
+      name: t('landing.testimonial1_name'),
+      role: t('landing.testimonial1_role'),
+      text: t('landing.testimonial1_text'),
+      stars: 5
+    },
+    {
+      name: t('landing.testimonial2_name'),
+      role: t('landing.testimonial2_role'),
+      text: t('landing.testimonial2_text'),
+      stars: 5
+    },
+    {
+      name: t('landing.testimonial3_name'),
+      role: t('landing.testimonial3_role'),
+      text: t('landing.testimonial3_text'),
+      stars: 5
+    }
+  ];
  
   useEffect(() => {
   const interval = setInterval(() => {
@@ -211,7 +211,7 @@ const features = [
               color: isDarkMode ? '#aac4ff' : '#3b6fff',
               fontWeight: '600'
             }}>
-              🌐 Im Browser – kein Download nötig
+              🌐 {t('landing.badge_no_download')}
             </div>
             <div style={{
               display: 'inline-flex',
@@ -225,7 +225,7 @@ const features = [
               color: isDarkMode ? '#6fcf97' : '#1a8a3c',
               fontWeight: '600'
             }}>
-              ✓ 100% kostenlos
+              ✓ {t('landing.badge_free')}
             </div>
             <div style={{
               display: 'inline-flex',
@@ -239,7 +239,7 @@ const features = [
               color: isDarkMode ? '#f0a050' : '#c96a00',
               fontWeight: '600'
             }}>
-              ⚡ Sofort loslegen
+              ⚡ {t('landing.badge_instant')}
             </div>
           </div>
         </div>
@@ -306,9 +306,9 @@ const features = [
       </section>
       {/* --- WIE ES FUNKTIONIERT --- */}
       <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>So funktioniert VIGOR</h2>
+        <h2 style={styles.sectionTitle}>{t('landing.how_title')}</h2>
         <p style={{textAlign: 'center', color: isDarkMode ? '#aaa' : '#666', marginBottom: '50px', fontSize: '1rem'}}>
-          In 3 einfachen Schritten zum persönlichen Fitness-Tracker
+          {t('landing.how_subtitle')}
         </p>
         <div style={{
           display: 'flex',
@@ -323,20 +323,20 @@ const features = [
             {
               step: '1',
               icon: '📝',
-              title: 'Kostenlos registrieren',
-              desc: 'Erstelle deinen Account in wenigen Sekunden – kein Download, keine Kreditkarte, komplett kostenlos.'
+              title: t('landing.how_step1_title'),
+              desc: t('landing.how_step1_desc')
             },
             {
               step: '2',
               icon: '⚙️',
-              title: 'Profil einrichten',
-              desc: 'Gib deine Ziele, Körperdaten und Aktivitätslevel ein. VIGOR berechnet automatisch deinen Kalorienbedarf.'
+              title: t('landing.how_step2_title'),
+              desc: t('landing.how_step2_desc')
             },
             {
               step: '3',
               icon: '📈',
-              title: 'Fortschritt tracken',
-              desc: 'Logge täglich Gewicht, Workouts und Mahlzeiten. Beobachte wie du deinen Zielen näher kommst.'
+              title: t('landing.how_step3_title'),
+              desc: t('landing.how_step3_desc')
             }
           ].map((item, index) => (
             <div key={index} style={{
@@ -408,7 +408,7 @@ const features = [
             cursor: 'pointer',
             boxShadow: '0 4px 15px rgba(0,123,255,0.3)'
           }}>
-            Jetzt kostenlos starten →
+            {t('landing.how_cta')}
           </button>
         </div>
       </section>
@@ -623,9 +623,9 @@ const features = [
  
       {/* --- TESTIMONIALS --- */}
       <section style={{...styles.section, backgroundColor: isDarkMode ? '#1e1e1e' : '#f8f9fa', overflow: 'hidden'}}>
-        <h2 style={styles.sectionTitle}>Was unsere Nutzer sagen</h2>
+        <h2 style={styles.sectionTitle}>{t('landing.testimonials_title')}</h2>
         <p style={{textAlign: 'center', color: isDarkMode ? '#aaa' : '#666', marginBottom: '40px'}}>
-          Echte Erfahrungen aus der Beta
+          {t('landing.testimonials_subtitle')}
         </p>
         <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto' }}>
           {testimonials.map((item, index) => (
