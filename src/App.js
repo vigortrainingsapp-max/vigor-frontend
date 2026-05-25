@@ -117,9 +117,9 @@ const handleLogin = (userData) => {
   setToken(newToken);
   
   // UserId für spätere API-Calls speichern
-  if (userData?._id) {
-    localStorage.setItem('userId', userData._id);
-  }
+ if (userData?.id || userData?._id) {
+  localStorage.setItem('userId', userData.id || userData._id);
+}
 
   // Weiche: Onboarding oder direkt rein?
   if (userData?.isOnboardingCompleted) {
