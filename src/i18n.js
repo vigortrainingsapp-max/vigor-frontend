@@ -500,7 +500,7 @@ const resources = {
 "smart_tracking_desc": "Track your progress precisely.",
 "health_focus": "Focus on Health",
 "health_focus_desc": "Holistic approach for body and mind.",
-landing: landingPageTranslations.en,
+      landing: landingPageTranslations.en,
 
 // --- TRAINING ---
       "training_title": "Training Overview",
@@ -1193,7 +1193,7 @@ landing: landingPageTranslations.en,
 "smart_tracking_desc": "Suivez vos progrès avec précision.",
 "health_focus": "Santé au centre",
 "health_focus_desc": "Approche holistique pour le corps et l'esprit.",
-landing: landingPageTranslations.fr,
+      landing: landingPageTranslations.fr,
 
 
 // --- TRAINING ---
@@ -1531,7 +1531,7 @@ landing: landingPageTranslations.fr,
 "smart_tracking_desc": "Segui i tuoi progressi con precisione.",
 "health_focus": "Salute al centro",
 "health_focus_desc": "Approccio olistico per corpo e mente.",
-landing: landingPageTranslations.it,
+      landing: landingPageTranslations.it,
 
 // --- TRAINING ---
       "training_title": "Panoramica Allenamento",
