@@ -81,7 +81,36 @@ export const landingPageTranslations = {
     // Footer / Links
     footer_imprint: "Impressum",
     footer_privacy: "Datenschutz",
-    footer_terms: "AGB"
+    footer_terms: "AGB",
+
+    // Badges (Hero)
+    badge_no_download: "🌐 Im Browser – kein Download nötig",
+    badge_free: "✓ 100% kostenlos",
+    badge_instant: "⚡ Sofort loslegen",
+
+    // Wie es funktioniert
+    how_title: "So funktioniert VIGOR",
+    how_subtitle: "In 3 einfachen Schritten zum persönlichen Fitness-Tracker",
+    how_step1_title: "Kostenlos registrieren",
+    how_step1_desc: "Erstelle deinen Account in wenigen Sekunden – kein Download, keine Kreditkarte, komplett kostenlos.",
+    how_step2_title: "Profil einrichten",
+    how_step2_desc: "Gib deine Ziele, Körperdaten und Aktivitätslevel ein. VIGOR berechnet automatisch deinen Kalorienbedarf.",
+    how_step3_title: "Fortschritt tracken",
+    how_step3_desc: "Logge täglich Gewicht, Workouts und Mahlzeiten. Beobachte wie du deinen Zielen näher kommst.",
+    how_cta: "Jetzt kostenlos starten →",
+
+    // Testimonials
+    testimonials_title: "Was unsere Nutzer sagen",
+    testimonials_subtitle: "Echte Erfahrungen aus der Beta",
+    testimonial1_name: "Jonas M.",
+    testimonial1_role: "Hobbyathlet",
+    testimonial1_text: "Endlich eine App, die alles in einem hat! Ich tracke mein Gewicht, meine Mahlzeiten und meinen Schlaf – alles kostenlos. Absolut empfehlenswert!",
+    testimonial2_name: "Laura K.",
+    testimonial2_role: "Fitness-Anfängerin",
+    testimonial2_text: "Super übersichtlich und einfach zu bedienen. Ich habe viele Apps ausprobiert, aber VIGOR ist die erste, bei der ich wirklich drangeblieben bin.",
+    testimonial3_name: "Markus T.",
+    testimonial3_role: "Kraftsportler",
+    testimonial3_text: "Die Körpermaß-Tracking Funktion ist genau was ich gesucht habe. Man sieht seinen Fortschritt über Zeit – das motiviert enorm!"
   },
   
   en: {
@@ -156,7 +185,33 @@ export const landingPageTranslations = {
 
     footer_imprint: "Imprint",
     footer_privacy: "Privacy Policy",
-    footer_terms: "Terms"
+    footer_terms: "Terms",
+
+    badge_no_download: "🌐 Browser-based – no download needed",
+    badge_free: "✓ 100% free",
+    badge_instant: "⚡ Start instantly",
+
+    how_title: "How VIGOR works",
+    how_subtitle: "3 simple steps to your personal fitness tracker",
+    how_step1_title: "Register for free",
+    how_step1_desc: "Create your account in seconds – no download, no credit card, completely free.",
+    how_step2_title: "Set up your profile",
+    how_step2_desc: "Enter your goals, body data and activity level. VIGOR automatically calculates your calorie needs.",
+    how_step3_title: "Track your progress",
+    how_step3_desc: "Log your weight, workouts and meals daily. Watch yourself get closer to your goals.",
+    how_cta: "Start for free now →",
+
+    testimonials_title: "What our users say",
+    testimonials_subtitle: "Real experiences from the Beta",
+    testimonial1_name: "Jonas M.",
+    testimonial1_role: "Hobby Athlete",
+    testimonial1_text: "Finally an app that has everything in one place! I track my weight, meals and sleep – all for free. Absolutely recommended!",
+    testimonial2_name: "Laura K.",
+    testimonial2_role: "Fitness Beginner",
+    testimonial2_text: "Super clear and easy to use. I've tried many apps, but VIGOR is the first one I've actually stuck with.",
+    testimonial3_name: "Markus T.",
+    testimonial3_role: "Strength Athlete",
+    testimonial3_text: "The body measurement tracking feature is exactly what I was looking for. You can see your progress over time – it's incredibly motivating!"
   },
 
   es: {
@@ -231,7 +286,33 @@ export const landingPageTranslations = {
 
     footer_imprint: "Aviso legal",
     footer_privacy: "Privacidad",
-    footer_terms: "Términos"
+    footer_terms: "Términos",
+
+    badge_no_download: "🌐 En el navegador – sin descarga",
+    badge_free: "✓ 100% gratuito",
+    badge_instant: "⚡ Empieza ya",
+
+    how_title: "Cómo funciona VIGOR",
+    how_subtitle: "3 sencillos pasos hacia tu rastreador personal de fitness",
+    how_step1_title: "Regístrate gratis",
+    how_step1_desc: "Crea tu cuenta en segundos – sin descarga, sin tarjeta de crédito, completamente gratis.",
+    how_step2_title: "Configura tu perfil",
+    how_step2_desc: "Ingresa tus objetivos, datos corporales y nivel de actividad. VIGOR calcula automáticamente tus necesidades calóricas.",
+    how_step3_title: "Rastrea tu progreso",
+    how_step3_desc: "Registra tu peso, entrenamientos y comidas diariamente. Observa cómo te acercas a tus metas.",
+    how_cta: "Empieza gratis ahora →",
+
+    testimonials_title: "Lo que dicen nuestros usuarios",
+    testimonials_subtitle: "Experiencias reales de la Beta",
+    testimonial1_name: "Jonas M.",
+    testimonial1_role: "Atleta aficionado",
+    testimonial1_text: "¡Por fin una app que tiene todo en un solo lugar! Registro mi peso, comidas y sueño, todo gratis. ¡Totalmente recomendable!",
+    testimonial2_name: "Laura K.",
+    testimonial2_role: "Principiante en fitness",
+    testimonial2_text: "Muy clara y fácil de usar. He probado muchas apps, pero VIGOR es la primera con la que realmente me he quedado.",
+    testimonial3_name: "Markus T.",
+    testimonial3_role: "Deportista de fuerza",
+    testimonial3_text: "La función de seguimiento de medidas corporales es exactamente lo que buscaba. Puedes ver tu progreso a lo largo del tiempo, ¡es muy motivador!"
   },
 
   fr: {
@@ -306,7 +387,33 @@ export const landingPageTranslations = {
 
     footer_imprint: "Mentions légales",
     footer_privacy: "Confidentialité",
-    footer_terms: "CGU"
+    footer_terms: "CGU",
+
+    badge_no_download: "🌐 Dans le navigateur – sans téléchargement",
+    badge_free: "✓ 100% gratuit",
+    badge_instant: "⚡ Commence maintenant",
+
+    how_title: "Comment fonctionne VIGOR",
+    how_subtitle: "3 étapes simples vers ton tracker fitness personnel",
+    how_step1_title: "S'inscrire gratuitement",
+    how_step1_desc: "Crée ton compte en quelques secondes – sans téléchargement, sans carte de crédit, complètement gratuit.",
+    how_step2_title: "Configurer ton profil",
+    how_step2_desc: "Saisis tes objectifs, tes données corporelles et ton niveau d'activité. VIGOR calcule automatiquement tes besoins caloriques.",
+    how_step3_title: "Suivre tes progrès",
+    how_step3_desc: "Enregistre ton poids, tes entraînements et tes repas quotidiennement. Observe comment tu te rapproches de tes objectifs.",
+    how_cta: "Commencer gratuitement →",
+
+    testimonials_title: "Ce que disent nos utilisateurs",
+    testimonials_subtitle: "Expériences réelles de la Beta",
+    testimonial1_name: "Jonas M.",
+    testimonial1_role: "Athlète amateur",
+    testimonial1_text: "Enfin une app qui a tout en un ! Je suis mon poids, mes repas et mon sommeil – le tout gratuitement. Absolument recommandé !",
+    testimonial2_name: "Laura K.",
+    testimonial2_role: "Débutante en fitness",
+    testimonial2_text: "Super clair et facile à utiliser. J'ai essayé beaucoup d'apps, mais VIGOR est la première avec laquelle je suis vraiment restée.",
+    testimonial3_name: "Markus T.",
+    testimonial3_role: "Sportif de force",
+    testimonial3_text: "La fonction de suivi des mesures corporelles est exactement ce que je cherchais. On voit ses progrès dans le temps – c'est très motivant !"
   },
 
   it: {
@@ -381,6 +488,32 @@ export const landingPageTranslations = {
 
     footer_imprint: "Impronta",
     footer_privacy: "Privacy",
-    footer_terms: "Termini"
+    footer_terms: "Termini",
+
+    badge_no_download: "🌐 Nel browser – nessun download",
+    badge_free: "✓ 100% gratuito",
+    badge_instant: "⚡ Inizia subito",
+
+    how_title: "Come funziona VIGOR",
+    how_subtitle: "3 semplici passi verso il tuo tracker fitness personale",
+    how_step1_title: "Registrati gratis",
+    how_step1_desc: "Crea il tuo account in pochi secondi – nessun download, nessuna carta di credito, completamente gratuito.",
+    how_step2_title: "Configura il tuo profilo",
+    how_step2_desc: "Inserisci i tuoi obiettivi, i dati corporei e il livello di attività. VIGOR calcola automaticamente il tuo fabbisogno calorico.",
+    how_step3_title: "Monitora i tuoi progressi",
+    how_step3_desc: "Registra quotidianamente peso, allenamenti e pasti. Osserva come ti avvicini ai tuoi obiettivi.",
+    how_cta: "Inizia gratis ora →",
+
+    testimonials_title: "Cosa dicono i nostri utenti",
+    testimonials_subtitle: "Esperienze reali dalla Beta",
+    testimonial1_name: "Jonas M.",
+    testimonial1_role: "Atleta amatoriale",
+    testimonial1_text: "Finalmente un'app che ha tutto in un unico posto! Monitoro peso, pasti e sonno – tutto gratis. Assolutamente consigliata!",
+    testimonial2_name: "Laura K.",
+    testimonial2_role: "Principiante nel fitness",
+    testimonial2_text: "Super chiara e facile da usare. Ho provato molte app, ma VIGOR è la prima con cui sono rimasta davvero.",
+    testimonial3_name: "Markus T.",
+    testimonial3_role: "Atleta di forza",
+    testimonial3_text: "La funzione di monitoraggio delle misure corporee è esattamente quello che cercavo. Si vede il progresso nel tempo – è molto motivante!"
   }
 };
